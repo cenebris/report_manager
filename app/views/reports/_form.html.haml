@@ -1,20 +1,18 @@
-%p#notice= notice
-= form_for(report) do |f|
-  - if report.errors.any?
-    #error_explanation
-      %h2
-        Błędy:
+- if notice
+  %p#notice
+    .alert.alert-info
+      = notice
+
+- if report.errors.any?
+  %p#notice
+    .alert.alert-danger
+      %h2 Błędy:
       %ul
         - report.errors.full_messages.each do |message|
           %li= RemoveFirstWordFromSentence.new.call message
-  .field
-    = f.label :description, 'Opis'
-    = f.text_area :description
-  .field
-    = f.label :category, 'Kategoria'
-    = f.select :category, @categories, id: 'select'
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions
-    = f.submit 'Wyślij Zgłoszenie'
+= form_for(report) do |f|
+  .well
+    = f.text_area :description, class: 'form-control', placeholder: 'Opis'
+    = f.select(:category, options_for_select(@categories), {}, {class: 'form-control'})
+    = f.text_field :email, class: 'form-control', placeholder: 'E-mail'
+  = f.submit 'Wyślij Zgłoszenie', class: 'btn btn-primary'
