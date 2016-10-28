@@ -4,7 +4,7 @@
 %h3 (wyświetlone zgłoszenia zostaną oznaczone jako przeczytane)
 = form_tag read_path, method: :get do
   Ilość
-  = select_tag :amount, options_for_select(1..10), include_blank: true
+  = select_tag :amount, options_for_select(1..10)
   Kategoria
   = select_tag :category, options_for_select(@categories), include_blank: true
   Koszt

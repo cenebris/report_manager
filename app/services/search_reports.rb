@@ -14,8 +14,7 @@ class SearchReports
     elsif params[:read].present? && params[:read] == ''
       reports
     end
-
-    reports = reports.first(amount)
+    reports = reports.first(amount.to_i)
     SetReportsAsRead.new.call reports
     reports
   end

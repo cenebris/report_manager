@@ -8,6 +8,8 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    @report.price, @report.completion_time = session[:price], session[:completion_time]
+    @report.read = false
 
     if @report.save
       redirect_to root_url, notice: 'Zgłoszenie zostało przesłane.'

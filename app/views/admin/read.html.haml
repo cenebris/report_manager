@@ -15,6 +15,6 @@
           %td= report.email
           %td= report.price
           %td= report.read == true ? 'Tak' : 'Nie'
-          %td= report.completion_time.to_formatted_s(:db)
+          %td= report.completion_time
 - else
   %h2 Brak zgłoszeń do wyświetlenia
