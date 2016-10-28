@@ -11,7 +11,7 @@
         - report.errors.full_messages.each do |message|
           %li= RemoveFirstWordFromSentence.new.call message
 = form_for(report) do |f|
-  .well
+  .form-group
     = f.text_area :description, class: 'form-control', placeholder: 'Opis'
     = f.select(:category, options_for_select(@categories), {}, {class: 'form-control'})
     = f.text_field :email, class: 'form-control', placeholder: 'E-mail'

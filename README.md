@@ -1,24 +1,25 @@
-# README
+# How to launch this app?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* git clone
 
-Things you may want to cover:
+* bundle install
 
-* Ruby version
+* rails db:migrate
 
-* System dependencies
+* rails db:seed
 
-* Configuration
+* rails s
 
-* Database creation
+# Two important urls
 
-* Database initialization
+* [localhost:3000](localhost:3000) - form for submitting new reports
 
-* How to run the test suite
+* [localhost:3000/admin](localhost:3000/admin) - simple admin panel for reading/managing reports
 
-* Services (job queues, cache servers, search engines, etc.)
+# Database seeding
 
-* Deployment instructions
+**rails db:seed** is set to delete all existing Reports and create 123 new valid and unread Reports. Every Report should look pretty authentic - **Faker Gem** is used for creating descriptions and emails.
 
-* ...
+# Search Service Object
+
+File **app/services/search_reports.rb** contains **SearchReports** class responsible for searching, returning and marking Reports as read.

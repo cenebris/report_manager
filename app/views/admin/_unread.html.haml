@@ -1,17 +1,24 @@
 %h1= "Ilość nieprzeczytanych zgłoszeń: #{unread}"
 
-%h2 Wybierz zgłoszenia do przeczytania:
-= form_tag read_path, method: :get do
-  Ilość
-  = select_tag :amount, options_for_select(1..10), class: 'form-control'
-  Kategoria
-  = select_tag :category, options_for_select(@categories), include_blank: true, class: 'form-control'
-  Koszt
-  = select_tag :price, options_for_select([1,10,50,100]), include_blank: true, class: 'form-control'
-  Status
-  = select_tag :read, options_for_select(%w[Nieprzeczytane Przeczytane], 'Nieprzeczytane'), include_blank: true, class: 'form-control'
-  Email
-  = text_field_tag :email, nil, class: "form-control"
-  = submit_tag 'Pokaż', class: 'btn btn-primary'
+.well
+  %h2 Wybierz zgłoszenia do przeczytania:
+  = form_tag read_path, method: :get do
+    .form-group
+      .row
+        .col-md-3.col-lg-3
+          %h4 Ilość
+          = select_tag :amount, options_for_select(1..10), class: 'form-control'
+        .col-md-3.col-lg-3
+          %h4 Kategoria
+          = select_tag :category, options_for_select(@categories), include_blank: true, class: 'form-control'
+        .col-md-3.col-lg-3
+          %h4 Koszt
+          = select_tag :price, options_for_select([1,10,50,100]), include_blank: true, class: 'form-control'
+        .col-md-3.col-lg-3
+          %h4 Status
+          = select_tag :read, options_for_select(%w[Nieprzeczytane Przeczytane], 'Nieprzeczytane'), include_blank: true, class: 'form-control'
+      %h4 Email
+      = text_field_tag :email, nil, class: 'form-control'
+    = submit_tag 'Pokaż', class: 'btn btn-primary'
     
 
