@@ -1,0 +1,9 @@
+= render 'admin/unread', unread: CountUnreadReports.call
+
+%table
+  %tbody
+    - @reports.each do |report|
+      %tr
+        %td= report.description
+        %td= report.email
+        %td= report.price
