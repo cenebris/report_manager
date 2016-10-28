@@ -6,7 +6,7 @@
         Błędy:
       %ul
         - report.errors.full_messages.each do |message|
-          %li= message
+          %li= RemoveFirstWordFromSentence.new.call message
   .field
     = f.label :description, 'Opis'
     = f.text_area :description
