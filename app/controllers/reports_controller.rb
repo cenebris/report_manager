@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
 
     if @report.save
-      redirect_to @report, notice: 'Report was successfully created.'
+      redirect_to root_url, notice: 'Zgłoszenie zostało przesłane.'
     else
       render :new
     end
