@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'GET root' do
+RSpec.describe ReportsController do
 
 end
 
