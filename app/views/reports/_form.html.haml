@@ -11,6 +11,9 @@
     = f.label :description, 'Opis'
     = f.text_area :description
   .field
+    = f.label :category, 'Kategoria'
+    = f.select :category, @categories, id: 'select'
+  .field
     = f.label :email
     = f.text_field :email
   .actions

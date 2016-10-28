@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :set_categories, only: [:new, :create]
 
   def new
     @report = Report.new
@@ -15,6 +16,10 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def set_categories
+    @categories = SetCategories.new.call
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def report_params
