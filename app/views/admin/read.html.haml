@@ -1,12 +1,20 @@
 = render 'admin/unread', unread: CountUnreadReports.call
-
-%table
-  %tbody
-    %th Opis
-    %th E-mail
-    %th Cena
-    - @reports.each do |report|
-      %tr
-        %td= report.description
-        %td= report.email
-        %td= report.price
+- unless @reports.nil?
+  %table
+    %tbody
+      %th Opis
+      %th Kategoria
+      %th E-mail
+      %th Cena
+      %th Przeczytane
+      %th Termin
+      - @reports.each do |report|
+        %tr
+          %td= report.description
+          %td= report.category
+          %td= report.email
+          %td= report.price
+          %td= report.read == true ? 'Tak' : 'Nie'
+          %td= report.completion_time.to_formatted_s(:db)
+- else
+  %h2 Brak zgłoszeń do wyświetlenia

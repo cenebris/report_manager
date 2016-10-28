@@ -1,14 +1,19 @@
 class AdminController < ApplicationController
+  before_action :set_categories
+
   def show
     @unread_count = CountUnreadReports.call
   end
 
   def read
-    @amount = params[:amount]
-    @reports = Report.all.where(read: false).first(params[:amount])
-    SetReportsAsRead.new.call @reports
+    @reports = SearchReports.new.call params[:amount], params
+    # SetReportsAsRead.new.call @reports
   end
 
-  def search
+  private
+
+  def set_categories
+    @categories = SetCategories.new.call
   end
+
 end

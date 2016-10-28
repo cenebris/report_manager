@@ -3,6 +3,15 @@
 %h2 Wybierz ilość zgłoszeń do przeczytania:
 %h3 (wyświetlone zgłoszenia zostaną oznaczone jako przeczytane)
 = form_tag read_path, method: :get do
-  = select_tag :amount, options_for_select(1..10)
-  = submit_tag 'Submit'
+  Ilość
+  = select_tag :amount, options_for_select(1..10), include_blank: true
+  Kategoria
+  = select_tag :category, options_for_select(@categories), include_blank: true
+  Koszt
+  = select_tag :price, options_for_select([1,10,50,100]), include_blank: true
+  Status
+  = select_tag :read, options_for_select(%w[Nieprzeczytane Przeczytane], 'Nieprzeczytane'), include_blank: true
+  Email
+  = text_field_tag :email
+  = submit_tag 'Pokaż'
 

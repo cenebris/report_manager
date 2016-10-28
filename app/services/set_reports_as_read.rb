@@ -1,5 +1,9 @@
 class SetReportsAsRead
   def call reports
-    reports.each {|report| report.read = true; report.try(:save)}
+    begin
+      reports.each {|report| report.read = true; report.try(:save)}
+    rescue
+      nil
+    end
   end
 end
