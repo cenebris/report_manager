@@ -1,0 +1,8 @@
+%h1= "Ilość nieprzeczytanych zgłoszeń: #{unread}"
+
+%h2 Wybierz ilość zgłoszeń do przeczytania:
+%h3 (wyświetlone zgłoszenia zostaną oznaczone jako przeczytane)
+= form_tag read_path, method: :get do
+  = select_tag :amount, options_for_select(1..10)
+  = submit_tag 'Submit'
+
